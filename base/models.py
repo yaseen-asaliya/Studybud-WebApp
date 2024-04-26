@@ -21,7 +21,7 @@ class Room(models.Model):
     created = models.DateField(auto_now_add=True) # it takes time when we created (only at the first time)
 
     class Meta:
-        get_latest_by = ['-created', '-updated']
+        ordering = ['-id'] # descending order by id
 
     def __str__(self):
         return str(self.name)

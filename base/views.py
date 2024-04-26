@@ -6,6 +6,9 @@ from .form import RoomForm
 
 def home(request):
     rooms = Room.objects.all()
+    for x in rooms:
+        print(x.created)
+
     context = {'rooms': rooms}
     return render(request, 'base/home.html' , context)
 
