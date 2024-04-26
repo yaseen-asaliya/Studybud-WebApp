@@ -20,6 +20,9 @@ class Room(models.Model):
     updated = models.DateField(auto_now=True)     # it takes time every time (to get last time it updated)
     created = models.DateField(auto_now_add=True) # it takes time when we created (only at the first time)
 
+    class Meta:
+        get_latest_by = ['-created', '-updated']
+
     def __str__(self):
         return str(self.name)
     
