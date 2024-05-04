@@ -33,6 +33,10 @@ def loginPage(request):
     context = {}# {'username': username, 'password': password}
     return render(request, 'base/login_register.html', context)
 
+def logoutUser(request):
+    logout(request) # it's gonna remove the token for that user
+    return redirect('home')
+
 def home(request):
     # get q value from the url
     q = request.GET.get('q') if request.GET.get('q') != None else ''
